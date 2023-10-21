@@ -15,7 +15,7 @@ jobs:
       uses: docker/login-action@v3.0.0
       with:
         username: ${{ secrets.DOCKERHUB_USER }}
-        password: ${{ secrets.DOCKERHUB_PWD }}
+        password: "dckr_pat_Gp7w2HFKbMQW8jQf4zm64TgRXCw"
         logout: true
     - name: Criar e enviar imagem Docker
       uses: docker/build-push-action@v5.0.0
