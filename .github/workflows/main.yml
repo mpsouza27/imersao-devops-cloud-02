@@ -15,9 +15,22 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USER}}
         password: ${{ secrets.DOCKERHUB_PWD}}
         logout: true
-
+    - name: Criar e enviar imagem Docker
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v5.0.0
+      with:
+        context: ./kube-news/src
+        file: ./kube-news/src/Dockerfile
+        push: true
+        tags: |
+          mpsouza/kube-news:${{ guthub.run_number}}
+          mpsouza/kube-news:latest
   CD:
     runs-on: ubuntu-Latest
     needs: [CI]
     steps:
+    - name: Authenticar na AWS
+      run: echo "authenticar na AWS"
+      
+     
     
