@@ -1,0 +1,23 @@
+name: CI-CD
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  CI:
+    runs-on: ubuntu-Latest
+    steps:
+    - name: Docker Login
+      uses: docker/login-action@v3.0.0
+      with:
+        username: ${{ secrets.DOCKERHUB_USER}}
+        password: ${{ secrets.DOCKERHUB_PWD}}
+        logout: true
+
+  CD:
+    runs-on: ubuntu-Latest
+    needs: [CI]
+    steps:
+    
