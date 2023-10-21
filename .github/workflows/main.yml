@@ -18,8 +18,8 @@ jobs:
     - name: Criar e enviar imagem Docker
       uses: docker/build-push-action@v5.0.0
       with:
-        context: kube-news/src
-        file: kube-news/src/Dockerfile
+        context: ./kube-news/src
+        file: ./kube-news/src/Dockerfile
         push: true
         tags: |
           mpsouza/kube-news:${{ github.run_number}}
