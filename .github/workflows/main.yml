@@ -22,7 +22,7 @@ jobs:
         file: ./kube-news/src/Dockerfile
         push: true
         tags: |
-          mpsouza/kube-news:${{ guthub.run_number}}
+          mpsouza/kube-news:${{ github.run_number}}
           mpsouza/kube-news:latest
   CD:
     runs-on: ubuntu-Latest
